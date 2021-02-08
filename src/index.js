@@ -1,13 +1,15 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
-  render(
-    <>
-      <h1>Hello!</h1>
-    </>
-  );
-};
+class App extends React.Component {
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => console.log(position),
+      (err) => console.log(err)
+    );
+
+    return <div>Latitude:</div>;
+  }
+}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
